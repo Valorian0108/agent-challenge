@@ -16,4 +16,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: valorian0108/nosana-eliza-agent:latest
+          tags: demi03/nosana-eliza-agent:latest
