@@ -1,30 +1,26 @@
-# syntax=docker/dockerfile:1
-FROM oven/bun:1 AS base
+FROM node:20-slim
 
-# Install system dependencies if needed
 RUN apt-get update && apt-get install -y \
     python3 \
     make \
     g++ \
     git \
+    curl \
     && rm -rf /var/lib/apt/lists/*
+
+RUN curl -fsSL https://bun.sh/install | bash
+ENV PATH="/root/.bun/bin:$PATH"
 
 WORKDIR /app
 
-# Disable telemetry
 ENV ELIZAOS_TELEMETRY_DISABLED=true
 ENV DO_NOT_TRACK=1
 
-# Copy package files (this matches your bun.lock file)
 COPY package.json bun.lock* ./
-
-# Install dependencies with Bun
 RUN bun install --frozen-lockfile
 
-# Copy the rest of the files
 COPY . .
 
-# Create data directory
 RUN mkdir -p /app/data
 
 EXPOSE 3000
