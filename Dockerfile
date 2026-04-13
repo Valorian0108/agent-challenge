@@ -15,7 +15,7 @@ WORKDIR /app
 ENV ELIZAOS_TELEMETRY_DISABLED=true
 ENV DO_NOT_TRACK=1
 
-# Copy package files (bun.lock exists in your repo)
+# Copy package files (this matches your bun.lock file)
 COPY package.json bun.lock* ./
 
 # Install dependencies with Bun
