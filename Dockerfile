@@ -15,8 +15,8 @@ WORKDIR /app
 ENV ELIZAOS_TELEMETRY_DISABLED=true
 ENV DO_NOT_TRACK=1
 
-# Copy package files
-COPY package.json bun.lockb ./
+# Copy package files (bun.lock exists in your repo)
+COPY package.json bun.lock* ./
 
 # Install dependencies with Bun
 RUN bun install --frozen-lockfile
