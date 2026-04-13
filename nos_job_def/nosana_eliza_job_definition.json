@@ -3,12 +3,12 @@
     {
       "id": "agent",
       "args": {
-        "image": "yourusername/nosana-eliza-agent:latest",
+        "image": "demi03/nosana-eliza-agent:latest",
         "expose": 3000,
         "env": {
           "OPENAI_API_KEY": "nosana",
-          "OPENAI_API_URL": "TODO: replace with actual Nosana Qwen3.5 endpoint URL",
-          "MODEL_NAME": "qwen3.5-27b",
+          "OPENAI_API_URL": "https://inference.nosana.io/v1",
+          "MODEL_NAME": "Qwen/Qwen2.5-72B-Instruct",
           "SERVER_PORT": "3000",
           "NODE_ENV": "production"
         }
